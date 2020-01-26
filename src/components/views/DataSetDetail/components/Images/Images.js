@@ -4,8 +4,6 @@ import GridImages from './components/GridImages'
 import Checkbox from '@material-ui/core/Checkbox';
 import { FormControlLabel, FormControl, FormGroup } from '@material-ui/core'
 // import { makeStyles } from '@material-ui/core/styles';
-import mockData from './tileData';
-
 
 // const useStyles = makeStyles(theme => ({
 //   root: {
@@ -16,7 +14,6 @@ import mockData from './tileData';
 export default class Images extends Component {
   state = {
     tags:[],
-    images:[mockData]
   }
 
   handleChange = (e) => {
@@ -52,7 +49,7 @@ export default class Images extends Component {
             />
           </FormGroup>
         </FormControl>
-        <GridImages images={this.state.images}/>
+        <GridImages/>
       </div>
     )
   }

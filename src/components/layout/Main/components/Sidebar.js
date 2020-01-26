@@ -42,7 +42,7 @@ export default function Sidebar(props) {
     },
     {
       title: 'Conjunto de Datos',
-      href: '/dataSets',
+      href: '/list',
       icon: <FormatListBulletedIcon />
     },
     {

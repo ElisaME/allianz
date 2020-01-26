@@ -5,7 +5,7 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import ListSubheader from '@material-ui/core/ListSubheader';
-//import tileData from '../tileData';
+import tileData from '../tileData';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -24,9 +24,9 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function GridImages(props) {
+export default function GridImages() {
   const classes = useStyles();
-  const {images} = props
+
   //FUNCION PARA IMPRIMIR ETIQUETAS POR SEPARADO
   // function getTag (tags) {
   //   tags.forEach(tag => {
@@ -48,13 +48,13 @@ export default function GridImages(props) {
         >
           <ListSubheader component="div">Filtrar Imágenes</ListSubheader>
         </GridListTile>
-        {images.map(tile => (
-          <GridListTile key={tile.img}>
+        {tileData.map(image => (
+          <GridListTile key={image.id}>
             <img 
-              alt={tile.img}
-              src={`/images/ife/${tile.img}.jpg`}
+              alt={image.img}
+              src={`/images/ife/${image.img}.jpg`}
             />
-            <GridListTileBar subtitle = {tile.tags}/>
+            <GridListTileBar subtitle = {image.tags}/>
           </GridListTile>
         ))}
       </GridList>
