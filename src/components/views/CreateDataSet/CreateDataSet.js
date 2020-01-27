@@ -24,16 +24,18 @@ const useStyles = makeStyles(theme => ({
 
 export default function CreateDataSet(props) {
   const [dataName,setName] = useState('');
+  const [error,setError]=useState(false);
   const { className, ...rest } = props;
   const classes = useStyles();
 
   function handleChange(e){
+    setError(false);
     const name = e.target.value
     setName(name);
   }
 
   function validation(){
-    const dataSetName = /([a-zA-Z0-9]){3,32}/
+    const dataSetName = /([a-zA-Z0-9]){1,32}/
     const status = dataSetName.test(dataName);
     console.log(status)
   }
@@ -50,6 +52,7 @@ export default function CreateDataSet(props) {
     })
     .catch(error=>{
       console.log(error)
+      setError(true);
     })
   }
 
@@ -65,6 +68,7 @@ export default function CreateDataSet(props) {
         no debe incluir símbolos a excepción de un guión bajo (_).</p>
         <form>
             <TextField
+              id="dataName"
               label='Nombre del Dataset'
               tyle={{ margin: 8 }}
               placeholder="Placeholder"
@@ -73,6 +77,10 @@ export default function CreateDataSet(props) {
               margin="normal"
               variant="outlined"
               onChange={handleChange}
+              inputProps={{
+                maxLength:32
+              }}
+              error={error ? true : false}
             />
             <Button onClick={handleSubmit} className={classes.button} variant="contained" color="secondary">Crear</Button>
         </form>
