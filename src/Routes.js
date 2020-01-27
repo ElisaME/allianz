@@ -3,21 +3,14 @@ import { Switch, Redirect } from 'react-router-dom';
 
 import { Main as MainLayout} from './components/layout/index';
 import RouteWithLayout from './components/RouteWithLayout/RouteWithLayout';
-import test from './components/test';
 import DataSetsList from './components/views/DataSetsList';
 import DataSetDetail from './components/views/DataSetDetail/DataDetail';
-import CreateDataSet from './components/views/CreateDataSet/CreateDataSet';
+import CreateDataSet from './components/views/DataSetsList/components/CreateDataSet/CreateDataSet';
 
 
 const Routes = () => {
   return (
     <Switch>
-      <RouteWithLayout
-          component={test}
-          exact
-          layout={MainLayout}
-          path="/"
-        />
       <RouteWithLayout
         component={DataSetsList}
         exact

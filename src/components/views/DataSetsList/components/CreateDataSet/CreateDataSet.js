@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
   },
   content:{
     padding:theme.spacing(3),
-    width:'70vw',  },
+  },
   button:{
     display:'flex',
     justifyContent:'flex-end'
@@ -45,15 +45,17 @@ export default function CreateDataSet(props) {
     console.log('Data set name: ' + dataName)
     validation()
     //URL PARA POST
-    axios.post('api/allianz/v1/dataset/create', dataName)
-    .then(res => {
-      console.log(res);
-      console.log(res.data);
-    })
-    .catch(error=>{
-      console.log(error)
-      setError(true);
-    })
+    axios.post('http://172.13.10.68:1337/api/allianz/v1/dataset/create',{
+        datasetname:dataName
+      })
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
+      .catch(error=>{
+        console.log(error)
+        setError(true);
+      })
   }
 
   return (
