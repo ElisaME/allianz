@@ -82,16 +82,16 @@ const DataSetsTable = props => {
                   >
                     <TableCell>
                       <div className={classes.nameContainer}>
-                        <Typography variant="body1">{dataSet.name}</Typography>
+                        <Typography variant="body1">{dataSet.displayName}</Typography>
                       </div>
                     </TableCell>
-                    <TableCell>{dataSet.type}</TableCell>
-                    <TableCell>{dataSet.total_documents}</TableCell>
-                    <TableCell>{dataSet.total_tags}</TableCell>
+                    <TableCell>{dataSet.imageClassificationDatasetMetadata.classificationType}</TableCell>
+                    <TableCell></TableCell>
+                    <TableCell>{dataSet.exampleCount}</TableCell>
                     <TableCell>
-                      {moment(dataSet.createdAt).format('DD/MM/YYYY')}
+                      {moment(dataSet.createTime).format('DD/MM/YYYY')}
                     </TableCell>
-                    <TableCell>{dataSet.status}</TableCell>
+                    {/* <TableCell>{dataSet.status}</TableCell> */}
                   </TableRow>
                 ))}
               </TableBody>
