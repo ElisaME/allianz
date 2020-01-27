@@ -6,6 +6,7 @@ import RouteWithLayout from './components/RouteWithLayout/RouteWithLayout';
 import test from './components/test';
 import DataSetsList from './components/views/DataSetsList';
 import DataSetDetail from './components/views/DataSetDetail/DataDetail';
+import CreateDataSet from './components/views/CreateDataSet/CreateDataSet';
 
 
 const Routes = () => {
@@ -28,6 +29,12 @@ const Routes = () => {
         exact
         layout={MainLayout}
         path="/detail"
+      />
+      <RouteWithLayout
+        component={CreateDataSet}
+        exact
+        layout={MainLayout}
+        path="/newDataset"
       />
       <Redirect to="/not-found" />
     </Switch>
